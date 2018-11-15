@@ -1,0 +1,25 @@
+@import '../../../utilities/variables';
+
+.namedButton {
+  margin: $defPadding;
+  padding: $defPadding $defPadding * 1.5;
+  background-color: $defColor;
+  border: 2px solid darken($defColor, 5%);
+  border-radius: 5px;
+  font-size: 1em;
+  color: white;
+  text-transform: capitalize;
+  box-shadow: 0 2px 2px 0px lighten($defColor, 10%);
+  position: relative;
+  &:focus {
+    box-shadow: 0 0px 2px 2px $defColor;
+    outline: none;
+  }
+  &:hover {
+    border: 2px solid $defColorDarken;
+    background-color: $defColorDarken;
+  }
+  &:active {
+    top: 2px;
+  }
+}

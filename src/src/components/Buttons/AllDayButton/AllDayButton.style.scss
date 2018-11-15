@@ -1,0 +1,23 @@
+@import '../../../utilities/variables';
+
+.allDayButton {
+  border: 1px solid $defColor;
+  background-color: $defColorDarken;
+  padding: 0;
+  &:focus {
+    border: 2px dotted darken($defColorDarken, 15%);
+    outline: none;
+  }
+  &:hover {
+    border: 2px solid darken($defColorDarken, 10%);
+  }
+}
+
+.isChecked{
+  &::before{
+    content: url("../../../icons/round-check_circle-24px.svg");
+    // content: '\2713';
+    // color: lighten($defColor, 25%);
+    // font-size: 2em;
+  };
+};

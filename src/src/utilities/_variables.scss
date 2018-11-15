@@ -1,0 +1,10 @@
+$defColor: rgb(180,180,180);
+$defColorDarken: darken($defColor, 15%);
+$defColorLighten: lighten($defColor, 15%);
+$defPadding: 0.5em;
+
+$breakpointMinWidth: 480px;
+
+$webkitMinRatio: 'only screen and (-webkit-min-device-pixel-ratio: 1.3)';
+$oMinRatio: 'only screen and (-o-min-device-pixel-ratio: 13/10)';
+$minResolution: 'only screen and (min-resolution: 120dpi)';

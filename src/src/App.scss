@@ -1,0 +1,22 @@
+@import './utilities/variables';
+
+#root {
+  margin: 0 auto;
+  padding: 0.5em;
+  color: $defColor;
+  max-width: 1000px;
+  * {
+    font-family: 'Arial Narrow', Helvetica, sans-serif;
+    text-transform: uppercase;
+  };
+  >:last-child {
+    text-align: right;
+  };
+};
+
+
+@media #{$webkitMinRatio}, #{$oMinRatio}, #{$minResolution} {
+  #root {
+    font-size: 1.2em; 
+  };
+};

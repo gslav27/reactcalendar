@@ -1,0 +1,66 @@
+@import '../../utilities/variables';
+
+.calendar {
+  margin: 1em 0;
+  min-width: 280px;
+
+  > div {
+    display: flex;
+    border: 1px solid lighten($defColor, 20%);
+    height: 3em;
+    div {
+      text-align: center;
+      margin: auto 0;
+    };
+    :nth-child(1) {
+      line-height: 3em;
+    }
+    :nth-child(1), :nth-child(2) {
+      flex: 10%;
+      min-width: 2rem;
+      max-width: 10%;
+    };
+    > * {
+      flex: 1;
+    };
+    .checked {
+      background-color: $defColorLighten;
+      color: $defColorDarken;
+    };
+  }
+
+  .header {
+    border: none;
+    font-size: 0.9em;
+    color: $defColorDarken;
+    span {
+      margin: auto 0;
+      position: relative;
+      &::after {
+        content:""; 
+        background: $defColor; 
+        position: absolute; 
+        bottom: -1em;
+        left: -1px; 
+        height: 1em; 
+        width: 1px;
+      }
+    };
+  }
+}
+
+
+@media #{$webkitMinRatio} and (max-width: $breakpointMinWidth),
+  #{$oMinRatio} and (max-width: $breakpointMinWidth),
+  #{$minResolution} and (max-width: $breakpointMinWidth) {
+  .calendar .header span {
+    font-size: 0.8em;
+    writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    &::after {
+      bottom: 1.85em;
+      left: auto;
+    }
+  }
+}
