@@ -1,0 +1,11 @@
+{
+  "name": "simpleexpressserver",
+  "version": "1.0.0",
+  "description": "load ReactcalendarApp from local server",
+  "main": "server.js",
+  "scripts": {
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
