@@ -14,7 +14,10 @@ import CalendarLayout from '../components/Calendar/CalendarLayout';
 class Calendar extends Component {
   constructor(props) {
     super(props);
-    this.state = { mouseDownOnHourButton: false };
+    this.state = {
+      mouseDownOnHourButton: false,
+      valueBeforeMouseDown: null,
+    };
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
     this.handleMouseLeave = this.handleMouseLeave.bind(this);
@@ -33,9 +36,11 @@ class Calendar extends Component {
   }
 
   handleMouseDown(day, hour) {
-    !(this.state.mouseDownOnHourButton || this.props.currentSchedule[day][hour]) &&
-      this.setState({ mouseDownOnHourButton: true }) &&
-      this.props.updateDaysHour(day, hour);
+    !this.state.mouseDownOnHourButton &&
+    this.setState({
+      mouseDownOnHourButton: true,
+      valueBeforeMouseDown: this.props.currentSchedule[day][hour],
+    });
   }
 
   handleMouseUp() {
@@ -43,7 +48,13 @@ class Calendar extends Component {
   }
 
   handleMouseLeave(day, hour) {
-    (this.state.mouseDownOnHourButton && !this.props.currentSchedule[day][hour]) && this.props.updateDaysHour(day, hour);
+    const { currentSchedule, updateDaysHour } = this.props;
+    this.state.mouseDownOnHourButton &&
+    (
+      this.state.valueBeforeMouseDown
+        ? currentSchedule[day][hour] && updateDaysHour(day, hour)
+        : !currentSchedule[day][hour] && updateDaysHour(day, hour)
+    );
   }
 
   handleMouseClick(day, hour) {
