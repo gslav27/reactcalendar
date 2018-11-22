@@ -1,25 +1,18 @@
-import React, { PureComponent } from 'react';
+import React, { memo } from 'react';
 import staticData from '../../../utilities/staticData';
 
-
-class CalendarHeader extends PureComponent {
-  render() {
-    const { hours, hoursGr } = staticData;
-    return (
-      <div className='header'>
-        <div />
-        <div>All day</div>
-        {
-          Array(hours / hoursGr).fill('').map((_, i) => (
-            <span key={i}>
-              {`${i * hoursGr}:00`.padStart(5, 0)}
-            </span>
-          ))
-        }
-      </div>
-    );
-  }
-}
+const CalendarHeader = () => (
+  <div className='header'>
+    <div>All day</div>
+    {
+      Array(staticData.hours / staticData.hoursGr).fill('').map((_, i) => (
+        <span key={i}>
+          {`${i * staticData.hoursGr}:00`.padStart(5, 0)}
+        </span>
+      ))
+    }
+  </div>
+);
 
 
-export default CalendarHeader;
+export default memo(CalendarHeader);
