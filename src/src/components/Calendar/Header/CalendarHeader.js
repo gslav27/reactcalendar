@@ -3,7 +3,10 @@ import staticData from '../../../utilities/staticData';
 
 const CalendarHeader = () => (
   <div className='header'>
-    <div>All day</div>
+    <div>
+      All day
+    </div>
+    <div/>
     {
       Array(staticData.hours / staticData.hoursGr).fill('').map((_, i) => (
         <span key={i}>
